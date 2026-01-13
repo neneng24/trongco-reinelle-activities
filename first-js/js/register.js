@@ -5,18 +5,31 @@ function register() {
     const fullname = document.getElementById('fullname').value.trim();
 
     if (username === "" || password === "" || confirmPassword === "" || fullname === "") {
-        alert("Please fill this up");
+        error.innerHTML= "Please fill this up";
+        error.style.color = 'green';
+        error.style.backgroundColor = 'yellow';
+        error.style.visibility = 'visible';
         return;
     }
 
     if (password !== confirmPassword) {
-        alert("Wrong password: passwords do not match");
+        error.innerHTML = "Wrong password: passwords do not match";
+        error.style.color = 'red';
+        error.style.backgroundColor = 'white';
+        error.style.visibility = 'visible';
         return;
     }
 
     if (username === "Reinelle" && password === "nelle" && fullname === "Reinelle Trongco") {
-        alert("Login successful");
+        error.innerHTML= "Login successful";
+        error.style.color = 'black';
+        error.style.backgroundColor = 'green';
+        error.style.visibility = 'visible';
+
     } else {
-        alert("Username, full name, or password is incorrect");
+        error.innerHTML = "Username, full name, or password is incorrect";
+        error.style.color = 'yellow';
+        error.style.backgroundColor = 'red';
+        error.style.visibility = 'visible';
     }
 }
