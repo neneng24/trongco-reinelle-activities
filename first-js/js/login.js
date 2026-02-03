@@ -2,7 +2,7 @@ function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    const error = document.getElementById('error');
+    const error = document.getElementsById('error');
 
     if((username == "Reinelle") && (password == "nelle")) {
         error.innerHTML= "Login successful";
