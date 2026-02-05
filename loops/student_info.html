@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Record</title>
+  <link rel="stylesheet" href="./css/student.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="top-bar">
+      <input type="text" id="searchInput" placeholder="Search name...">
+      <button onclick="searchStudent()">Search</button>
+    </div>
+
+    <div class="filters">
+      <button onclick="filterStudents('present')">Present</button>
+      <button onclick="filterStudents('absent')">Absent</button>
+      <button onclick="filterStudents('passed')">Passed</button>
+      <button onclick="filterStudents('failed')">Failed</button>
+      <button onclick="showAllStudents()">Show All</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Sub 1</th>
+          <th>Sub 2</th>
+          <th>Sub 3</th>
+          <th>Ave</th>
+          <th>Remarks</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- data here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="./js/student.js"></script>
+</body>
+</html>
