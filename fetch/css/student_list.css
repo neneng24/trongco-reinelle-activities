@@ -1,0 +1,126 @@
+/* Reset & basic font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #fdf6f0; /* soft pastel cream */
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+/* Table container */
+.table-container {
+  width: 100%;
+  max-width: 1100px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Page heading */
+h1 {
+  color: #6b7280; /* soft gray */
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Logout button */
+#logoutBtn {
+  background: #8fb0ec; /* pastel red */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+#logoutBtn:hover {
+  background: #636ceb;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+/* Table caption */
+caption {
+  caption-side: top;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #6b7280;
+}
+
+/* Table header */
+thead {
+  background: #85b7db; /* pastel blue */
+  color: #1f2937; /* dark text */
+}
+
+thead th {
+  padding: 12px 15px;
+}
+
+/* Table body rows */
+tbody tr {
+  background: #fefefe;
+  border-bottom: 1px solid #a3bcdd;
+  transition: background 0.3s;
+}
+
+tbody tr:nth-child(even) {
+  background: #f5f7fa; /* very light pastel blue */
+}
+
+tbody tr:hover {
+  background: #ffe6f0; /* pastel pink hover */
+}
+
+tbody td {
+  padding: 12px 15px;
+  color: #374151; /* soft dark text */
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+  }
+
+  tbody td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    font-weight: 600;
+    text-align: left;
+  }
+}

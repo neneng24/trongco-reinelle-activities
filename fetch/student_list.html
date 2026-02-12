@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student List</title>
+  <link rel="stylesheet" href="./css/student_list.css">
+  
+</head>
+<body>
+
+  <div class="table-container">
+      <button id="logoutBtn">Logout</button>
+      <table>
+          <caption>Student List</caption>
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Student ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Course</th>
+                  <th>Year Level</th>
+                  <th>Enrollment Date</th>
+              </tr>
+          </thead>
+          <tbody id="tableBody">
+              <!-- JS will insert rows here -->
+          </tbody>
+      </table>
+  </div>
+
+  <script>
+    // Simulated login check
+    if (localStorage.getItem("loggedIn") !== "true") {
+        window.location.href = "login.html";
+    }
+
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("loggedIn");
+        localStorage.removeItem("username");
+        window.location.href = "login.html";
+    });
+
+    // Sample student data
+    const data = {
+        "success": true,
+        "count": 5,
+        "students": [
+            {"id":1,"student_id":"2024-001","first_name":"Juan","last_name":"Dela Cruz","email":"juan.delacruz@school.edu","course":"BS Computer Science","year_level":2,"enrollment_date":"2024-08-01"},
+            {"id":2,"student_id":"2024-002","first_name":"Maria","last_name":"Santos","email":"maria.santos@school.edu","course":"BS Information Technology","year_level":1,"enrollment_date":"2024-08-01"},
+            {"id":3,"student_id":"2024-003","first_name":"Pedro","last_name":"Reyes","email":"pedro.reyes@school.edu","course":"BS Computer Science","year_level":3,"enrollment_date":"2023-08-01"},
+            {"id":4,"student_id":"2024-004","first_name":"Ana","last_name":"Garcia","email":"ana.garcia@school.edu","course":"BS Information Systems","year_level":2,"enrollment_date":"2024-08-01"},
+            {"id":5,"student_id":"2024-005","first_name":"Carlos","last_name":"Lopez","email":"carlos.lopez@school.edu","course":"BS Information Technology","year_level":4,"enrollment_date":"2022-08-01"}
+        ]
+    };
+
+    const tableBody = document.getElementById("tableBody");
+
+    data.students.forEach(student => {
+        const row = document.createElement("tr");
+
+        for (const key of ["id","student_id","first_name","last_name","email","course","year_level","enrollment_date"]) {
+            const td = document.createElement("td");
+            td.setAttribute("data-label", key.replace("_", " ").toUpperCase());
+            td.textContent = student[key];
+            row.appendChild(td);
+        }
+
+        tableBody.appendChild(row);
+    });
+  </script>
+
+</body>
+</html>
